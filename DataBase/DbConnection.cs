@@ -9,7 +9,7 @@ public class DbConnection
 
     public DbConnection()
     {
-        var connectionString = "";
+        var connectionString = "mongodb://localhost:27017/";
         var databaseName = "CollegeServer";
 
 
