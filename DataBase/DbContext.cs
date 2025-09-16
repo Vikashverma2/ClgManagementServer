@@ -3,11 +3,11 @@ using MongoDB.Driver;
 
 namespace ClgManagementServer.DataBase;
 
-public class DbConnection
+public class DbContext
 {
     public readonly IMongoDatabase _database;
 
-    public DbConnection()
+    public DbContext()
     {
         var connectionString = "mongodb://localhost:27017/";
         var databaseName = "CollegeServer";

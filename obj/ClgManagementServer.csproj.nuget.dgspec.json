@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\C-Sharp\\ClgManagementServer\\ClgManagementServer.csproj": {}
+    "e:\\C-Sharp\\ClgManagementServer\\ClgManagementServer.csproj": {}
   },
   "projects": {
-    "E:\\C-Sharp\\ClgManagementServer\\ClgManagementServer.csproj": {
+    "e:\\C-Sharp\\ClgManagementServer\\ClgManagementServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\C-Sharp\\ClgManagementServer\\ClgManagementServer.csproj",
+        "projectUniqueName": "e:\\C-Sharp\\ClgManagementServer\\ClgManagementServer.csproj",
         "projectName": "ClgManagementServer",
-        "projectPath": "E:\\C-Sharp\\ClgManagementServer\\ClgManagementServer.csproj",
+        "projectPath": "e:\\C-Sharp\\ClgManagementServer\\ClgManagementServer.csproj",
         "packagesPath": "C:\\Users\\Vikash Verma\\.nuget\\packages\\",
-        "outputPath": "E:\\C-Sharp\\ClgManagementServer\\obj\\",
+        "outputPath": "e:\\C-Sharp\\ClgManagementServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

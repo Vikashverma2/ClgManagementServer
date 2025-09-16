@@ -11,7 +11,7 @@ public class CollegeServices : ICollegeServices
 
     public readonly IMongoCollection<College> _college;
 
-    public CollegeServices(DbConnection dbConnection)
+    public CollegeServices(DbContext dbConnection)
     {
         _college = dbConnection.GetCollection<College>("Colleges");
     }
@@ -21,6 +21,10 @@ public class CollegeServices : ICollegeServices
         await _college.InsertOneAsync(college);
     }
 
+    // public async Task<List<College>> GetCollegesData()
+    // {
+
+    // }
 
 
  

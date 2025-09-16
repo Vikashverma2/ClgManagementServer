@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClgManagementServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3652a173dba4b63bab19eaba5910ccad04a28a0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36f4d9e0c2c27e4d0df944a3e6ffc13510879716")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClgManagementServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClgManagementServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
