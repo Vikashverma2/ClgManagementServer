@@ -1,4 +1,5 @@
 using ClgManagementServer.Models;
+using ClgManagementServer.Models.RequestModels;
 using ClgManagementServer.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -38,7 +39,7 @@ namespace ClgManagementServer.Controllers
         /// Get all colleges from the database
         /// </summary>
         /// <returns>List of colleges</returns>
-        [HttpGet("Get-All")]
+        [HttpGet("Get-All")] 
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<College>>> GetCollegeData()
         {
@@ -46,7 +47,33 @@ namespace ClgManagementServer.Controllers
             return Ok(collegeList);
         }
 
-        
+        [HttpPut]
+        public async Task<ActionResult<College>> UpdateCollege(string id, [FromBody] UpdateCollegeRequest request)
+        {
+            var updateCollege = await _collegeService.UpdateCollegeAsync(id, request);
+            if (updateCollege == null)
+                return NotFound($"College with ID {id} not found");
+
+            return Ok(updateCollege);
+        }
+
+
+
+        [HttpDelete]
+
+        public async Task<IActionResult> DeleteCollege([FromQuery] string collegeId)
+        {
+            if (string.IsNullOrEmpty(collegeId))
+                return BadRequest("College Id required");
+
+            var response = await _collegeService.DeleteCollege(collegeId);
+            return Ok(new { message = response });
+        }
+
+
+
+
+
 
 
 

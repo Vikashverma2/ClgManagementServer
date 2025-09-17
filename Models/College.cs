@@ -10,9 +10,10 @@ public class College
     [BsonRepresentation(BsonType.ObjectId)]
     public String? Id { get; set; }
     public String Name { get; set; }
-    public String location { get; set; }
+    public String Location { get; set; }
     public int EstablishedYear { get; set; }
     public int ContactNumber { get; set; }
+    public string Email { get; set; }
     
     
 
