@@ -21,10 +21,12 @@ public class CollegeServices : ICollegeServices
         await _college.InsertOneAsync(college);
     }
 
-    // public async Task<List<College>> GetCollegesData()
-    // {
+    public async Task<List<College>> GetCollegesData()
+    {
+        var collegesData = await _college.Find(a => true).ToListAsync();
+        return collegesData;
 
-    // }
+    }   
 
 
  

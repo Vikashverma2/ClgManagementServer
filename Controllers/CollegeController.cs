@@ -31,6 +31,24 @@ namespace ClgManagementServer.Controllers
             await _collegeService.CreateCollege(college);
             return Ok(new { message = " Student Created Successfully", colleges = college });
 
-       }
+        }
+
+
+        /// <summary>
+        /// Get all colleges from the database
+        /// </summary>
+        /// <returns>List of colleges</returns>
+        [HttpGet("Get-All")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<List<College>>> GetCollegeData()
+        {
+            var collegeList = await _collegeService.GetCollegesData();
+            return Ok(collegeList);
+        }
+
+        
+
+
+
     }
 }

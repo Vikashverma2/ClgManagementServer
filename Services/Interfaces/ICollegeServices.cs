@@ -7,5 +7,6 @@ public interface ICollegeServices
 {
 
     Task CreateCollege(College college);
+    Task<List<College>> GetCollegesData();
 
 }
