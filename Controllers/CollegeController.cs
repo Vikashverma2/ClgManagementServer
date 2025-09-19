@@ -27,10 +27,10 @@ namespace ClgManagementServer.Controllers
         {
 
             if (college == null)
-                return BadRequest("Invalid Student Data");
+                return BadRequest("Invalid College Data");
 
             await _collegeService.CreateCollege(college);
-            return Ok(new { message = " Student Created Successfully", colleges = college });
+            return Ok(new { message = " College Created Successfully", colleges = college });
 
         }
 
@@ -46,6 +46,7 @@ namespace ClgManagementServer.Controllers
             var collegeList = await _collegeService.GetCollegesData();
             return Ok(collegeList);
         }
+
 
         [HttpPut("ID")]
         public async Task<ActionResult<College>> UpdateCollege(string id, [FromBody] UpdateCollegeRequest request)

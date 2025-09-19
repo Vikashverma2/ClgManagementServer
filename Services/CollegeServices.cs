@@ -19,7 +19,7 @@ public class CollegeServices : ICollegeServices
 
     public async Task CreateCollege(College college)
     {
-        await _college. InsertOneAsync(college);
+        await _college.InsertOneAsync(college);
     }
 
     public async Task<List<College>> GetCollegesData()
