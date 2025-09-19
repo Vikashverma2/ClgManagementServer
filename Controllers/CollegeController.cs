@@ -47,7 +47,7 @@ namespace ClgManagementServer.Controllers
             return Ok(collegeList);
         }
 
-        [HttpPut]
+        [HttpPut("ID")]
         public async Task<ActionResult<College>> UpdateCollege(string id, [FromBody] UpdateCollegeRequest request)
         {
             var updateCollege = await _collegeService.UpdateCollegeAsync(id, request);
