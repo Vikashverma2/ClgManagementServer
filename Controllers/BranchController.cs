@@ -50,9 +50,20 @@ namespace ClgManagementServer.Controllers
 
             return Ok(updateBranch);
 
-        }  
+        }
 
-        
+        [HttpDelete]
+
+        public async Task<IActionResult> DeleteBranch([FromQuery] string brnachId)
+        {
+            if (string.IsNullOrEmpty(brnachId))
+                return BadRequest("College Id Required");
+
+            var response = await _branchServices.DeleteBranch(brnachId);
+            return Ok(new { message = response });
+        }
+
+
 
 
     }

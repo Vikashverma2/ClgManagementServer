@@ -3,6 +3,7 @@ using ClgManagementServer.DataBase;
 using ClgManagementServer.Models;
 using ClgManagementServer.Models.RequestModels;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 
 namespace ClgManagementServer.Services;
@@ -15,6 +16,9 @@ public class BranchServices
     {
         _branch = dbContext.GetCollection<Branch>("Branch");
     }
+
+
+    
     public async Task CreateBranch(Branch branch)
     {
         await _branch.InsertOneAsync(branch);
@@ -40,7 +44,11 @@ public class BranchServices
         return existingBranch;
     }
 
-     
+    public async Task<bool> DeleteBranch(string branchId)
+    {
+        await _branch.DeleteOneAsync(a => a.Id == branchId);
+        return true;
+     } 
     
 
     
