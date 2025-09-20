@@ -2,13 +2,14 @@
 using ClgManagementServer.DataBase;
 using ClgManagementServer.Models;
 using ClgManagementServer.Models.RequestModels;
+using ClgManagementServer.Services.Interfaces;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 
 namespace ClgManagementServer.Services;
 
-public class BranchServices
+public class BranchServices : IBranchServices
 {
     private readonly IMongoCollection<Branch> _branch;
 
@@ -18,7 +19,7 @@ public class BranchServices
     }
 
 
-    
+
     public async Task CreateBranch(Branch branch)
     {
         await _branch.InsertOneAsync(branch);

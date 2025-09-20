@@ -11,6 +11,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddSingleton<DbContext>();
 builder.Services.AddSingleton<ICollegeServices, CollegeServices>();
+builder.Services.AddSingleton<IBranchServices, BranchServices>();
 
 var app = builder.Build();
 
