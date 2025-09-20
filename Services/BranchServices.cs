@@ -1,6 +1,7 @@
  using System;
 using ClgManagementServer.DataBase;
 using ClgManagementServer.Models;
+using ClgManagementServer.Models.RequestModels;
 using Microsoft.AspNetCore.Http.HttpResults;
 using MongoDB.Driver;
 
@@ -26,6 +27,20 @@ public class BranchServices
         return branchData;
     }
 
+    public async Task<Branch> UpdateBranchAsync(string id, UpdateBranchRequest branchRequest)
+    {
+        var existingBranch = await _branch.Find(a => a.Id == id).FirstOrDefaultAsync();
+
+        if (existingBranch == null) return null;
+
+        existingBranch.Name = branchRequest.Name;
+        existingBranch.CourseId = branchRequest.CourseId;
+
+        await _branch.ReplaceOneAsync(a => a.Id == id, existingBranch);
+        return existingBranch;
+    }
+
+     
     
 
     
