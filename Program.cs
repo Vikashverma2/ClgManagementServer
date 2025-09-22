@@ -12,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddSingleton<DbContext>();
 builder.Services.AddSingleton<ICollegeServices, CollegeServices>();
 builder.Services.AddSingleton<IBranchServices, BranchServices>();
+builder.Services.AddSingleton<IDegreeServices, DegreeServices>();
 
 var app = builder.Build();
 

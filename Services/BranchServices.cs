@@ -15,9 +15,8 @@ public class BranchServices : IBranchServices
 
     public BranchServices(DbContext dbContext)
     {
-        _branch = dbContext.GetCollection<Branch>("Branch");
+        _branch = dbContext.GetCollection<Branch>("Branches");
     }
-
 
 
     public async Task CreateBranch(Branch branch)
