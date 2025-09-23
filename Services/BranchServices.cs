@@ -38,7 +38,7 @@ public class BranchServices : IBranchServices
         if (existingBranch == null) return null;
 
         existingBranch.Name = branchRequest.Name;
-        existingBranch.CourseId = branchRequest.CourseId;
+        existingBranch.DegreeId = branchRequest.DegreeId;
 
         await _branch.ReplaceOneAsync(a => a.Id == id, existingBranch);
         return existingBranch;

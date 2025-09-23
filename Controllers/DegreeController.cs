@@ -33,7 +33,7 @@ namespace ClgManagementServer.Controllers
         }
 
 
-        [HttpGet("Get All")]
+        [HttpGet("get all")]
         public async Task<ActionResult<List<Degree>>> GetDegreeData()
         {
             var degreeData = await _degreeServices.GetDegreeData();
@@ -66,7 +66,7 @@ namespace ClgManagementServer.Controllers
             return Ok(updateDegree);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
         public async Task<IActionResult> DeleteDegree(string id)
         {

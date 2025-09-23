@@ -29,12 +29,21 @@ public class CollegeServices : ICollegeServices
 
     }
 
+    public async Task<College?> GetCollegeById(string id)
+    {
+        if (string.IsNullOrEmpty(id))
+            return null;
+
+        var filter = Builders<College>.Filter.Eq(d => d.Id, id);
+        return await _college.Find(filter).FirstOrDefaultAsync();
+    }
+
 
     public async Task<College> UpdateCollegeAsync(string id, UpdateCollegeRequest request)
     {
         // 1. Try to find the existing college
         var existingCollege = await _college.Find(c => c.Id == id).FirstOrDefaultAsync();
- 
+
         if (existingCollege == null) return null;
 
         existingCollege.Name = request.Name;

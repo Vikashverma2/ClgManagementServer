@@ -26,15 +26,5 @@
     "C:\\Users\\Vikash Verma\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
     "C:\\Users\\Vikash Verma\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json.",
-      "projectPath": "e:\\C-Sharp\\ClgManagementServer\\ClgManagementServer.csproj",
-      "warningLevel": 1,
-      "filePath": "e:\\C-Sharp\\ClgManagementServer\\ClgManagementServer.csproj",
-      "targetGraphs": []
-    }
-  ]
+  "logs": []
 }

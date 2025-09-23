@@ -35,12 +35,9 @@ namespace ClgManagementServer.Controllers
         }
 
 
-        /// <summary>
-        /// Get all colleges from the database
-        /// </summary>
-        /// <returns>List of colleges</returns>
-        [HttpGet("Get-All")] 
-        [ProducesResponseType(StatusCodes.Status200OK)]
+
+        [HttpGet("get-all")] 
+
         public async Task<ActionResult<List<College>>> GetCollegeData()
         {
             var collegeList = await _collegeService.GetCollegesData();
@@ -48,7 +45,22 @@ namespace ClgManagementServer.Controllers
         }
 
 
-        [HttpPut("ID")]
+        [HttpGet("{id}")]
+
+        public async Task<ActionResult<College>> GetDegreeById(string id)
+        {
+            var getCollege = await _collegeService.GetCollegeById(id);
+
+            if (getCollege == null)
+                return NotFound($"College with Id {id} not found");
+
+            return Ok(getCollege);
+        }
+
+        
+
+
+        [HttpPut("{id}")]
         public async Task<ActionResult<College>> UpdateCollege(string id, [FromBody] UpdateCollegeRequest request)
         {
             var updateCollege = await _collegeService.UpdateCollegeAsync(id, request);
@@ -60,14 +72,14 @@ namespace ClgManagementServer.Controllers
 
 
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
-        public async Task<IActionResult> DeleteCollege([FromQuery] string collegeId)
+        public async Task<IActionResult> DeleteCollege(string id)
         {
-            if (string.IsNullOrEmpty(collegeId))
+            if (string.IsNullOrEmpty(id))
                 return BadRequest("College Id required");
 
-            var response = await _collegeService.DeleteCollege(collegeId);
+            var response = await _collegeService.DeleteCollege(id);
             return Ok(new { message = response });
         }
 
