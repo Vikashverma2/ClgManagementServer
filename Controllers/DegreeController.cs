@@ -1,4 +1,5 @@
 using ClgManagementServer.Models;
+using ClgManagementServer.Models.RequestModels;
 using ClgManagementServer.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -6,9 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace ClgManagementServer.Controllers
 {
 
-    /// <summary>
-    /// College management operations
-    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class DegreeController : ControllerBase
@@ -22,13 +20,7 @@ namespace ClgManagementServer.Controllers
 
 
 
-        /// <summary>
-        /// Create a new degree
-        /// </summary>
-        /// <param name="degree">Degree creation details</param>
-        /// <returns>Confirmation message</returns>
-        /// <response code="200">Degree successfully created</response>
-        /// <response code="400">If the request is invalid</response>
+
         [HttpPost]
         public async Task<IActionResult> CreateNewDegree([FromBody] Degree degree)
         {
@@ -40,12 +32,7 @@ namespace ClgManagementServer.Controllers
 
         }
 
-        /// <summary>
-        /// Get all degrees
-        /// </summary>
-        /// <returns>List of all available degrees</returns>
-        /// <response code="200">Returns the list of degrees</response>
-        /// <response code="404">If no degrees are found</response>
+
         [HttpGet("Get All")]
         public async Task<ActionResult<List<Degree>>> GetDegreeData()
         {
@@ -57,13 +44,7 @@ namespace ClgManagementServer.Controllers
             return Ok(degreeData);
         }
 
-        /// <summary>
-        /// Get a degree by ID
-        /// </summary>
-        /// <param name="id">The ID of the degree</param>
-        /// <returns>Degree details</returns>
-        /// <response code="200">Returns the degree with the given ID</response>
-        /// <response code="404">If the degree with the given ID is not found</response>
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Degree>> GetDegreeById(string id)
         {
@@ -74,6 +55,30 @@ namespace ClgManagementServer.Controllers
 
             return Ok(degree);
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Degree>> UpdateDegree(string id, [FromBody] UpdateDegreeRequest updateDegreeRequest)
+        {
+            var updateDegree = await _degreeServices.UpdateDegree(id, updateDegreeRequest);
+
+            if (updateDegree == null)
+                return NotFound($"Degree with Id {id} not found");
+            return Ok(updateDegree);
+        }
+
+        [HttpDelete]
+
+        public async Task<IActionResult> DeleteDegree(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                return BadRequest("Degree is Requried");
+
+            var response = await _degreeServices.DeleteDegree(id);
+
+
+            return Ok(new { message = response });
+        } 
+
 
 
 

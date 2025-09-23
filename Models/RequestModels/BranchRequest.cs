@@ -4,8 +4,9 @@ namespace ClgManagementServer.Models.RequestModels;
 
 public class UpdateBranchRequest
 {
-    public String Name { get; set; }
-    public String CourseId { get; set; }
+    public string Name { get; set; }
+    public string CourseId { get; set; }
+    
 
 
 }

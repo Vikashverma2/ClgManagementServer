@@ -16,7 +16,6 @@ public class Degree
     public string DegreeType { get; set; } = string.Empty;
     public List<string> BranchIds { get; set; } 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
-
+    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
 }
