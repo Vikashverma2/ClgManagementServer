@@ -1,16 +1,10 @@
 using System;
-using System.Data;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 
-namespace ClgManagementServer.Models;
+namespace ClgManagementServer.Models.RequestModels;
 
-public class Student
+public class StudentRequest
 {
-    [BsonId]
-    [BsonRepresentation(BsonType.ObjectId)]
 
-    public string? Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public string Eamil { get; set; } = string.Empty;
     public string Number { get; set; } = string.Empty;
@@ -20,8 +14,6 @@ public class Student
     public string BranchId { get; set; } = string.Empty;
     public string StudentId { get; set; } = string.Empty;
     public int Year { get; set; } = 1;
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
-    
+
 
 }
