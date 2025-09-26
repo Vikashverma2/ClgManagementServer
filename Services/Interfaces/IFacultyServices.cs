@@ -10,5 +10,6 @@ public interface IFacultyServices
     Task<List<Faculty>> GetFacultiesAsync(string id);
     Task<Faculty?> GetFacultyById(string id);
     Task<Faculty> Updateafaculty(string id, FacultyRequest facultyRequest);
+    Task<bool> DeleteFaculty(string id);
 
 }
