@@ -21,7 +21,7 @@ public class FacultyServices : IFacultyServices
         await _faculty.InsertOneAsync(faculty);
     }
 
-    public async Task<List<Faculty>> GetFacultiesAsync(string id)
+    public async Task<List<Faculty>> GetFacultiesAsync()
     {
         var getFaculites = await _faculty.Find(a => true).ToListAsync();
         return getFaculites;

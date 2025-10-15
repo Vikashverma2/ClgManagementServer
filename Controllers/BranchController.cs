@@ -26,12 +26,21 @@ namespace ClgManagementServer.Controllers
             return Ok(new { message = "Branch created successfully" });
         }
 
-        [HttpGet]
+        [HttpGet("get-all")]
         public async Task<ActionResult<List<Branch>>> GetBranchData()
         {
             var branchList = await _branchServices.GetBranchesData();
             return Ok(branchList);
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Branch>> GetBranchById(string id)
+        {
+            var branchById = await _branchServices.GetBranchById(id);
+            return Ok(branchById);
+        }
+
+        
 
         [HttpPut("{id}")]
         public async Task<ActionResult<Branch>> UpdateBranch(string id, [FromBody] UpdateBranchRequest branchRequest)

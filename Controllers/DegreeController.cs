@@ -33,7 +33,7 @@ namespace ClgManagementServer.Controllers
         }
 
 
-        [HttpGet("get all")]
+        [HttpGet("get-all")]
         public async Task<ActionResult<List<Degree>>> GetDegreeData()
         {
             var degreeData = await _degreeServices.GetDegreeData();

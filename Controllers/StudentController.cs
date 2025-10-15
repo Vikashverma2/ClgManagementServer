@@ -1,4 +1,5 @@
 using ClgManagementServer.Models;
+using ClgManagementServer.Models.RequestModels;
 using ClgManagementServer.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -28,15 +29,26 @@ namespace ClgManagementServer.Controllers
         [HttpGet("get-all")]
         public async Task<ActionResult<List<Student>>> GetAllStudentData()
         {
-            var getStudent = _studentServices.GetStudentData();
+            var getStudent = await _studentServices.GetStudentData();
             return Ok(getStudent);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Student>> GetStudentById(string id)
         {
-            var studentById = _studentServices.GetStudentById(id);
+            var studentById = await _studentServices.GetStudentById(id);
             return Ok(studentById);
+        }
+
+        [HttpPut("{id}")]
+
+        public async Task<ActionResult<Student>> StudentUpdate(string id, [FromBody] StudentRequest studentRequest)
+        {
+            var updateStundet = await _studentServices.UpdateStudent(id, studentRequest);
+            if (updateStundet == null)
+                return NotFound($"Student with id {id} not found");
+
+            return Ok(updateStundet);
         }
 
         [HttpDelete("{id}")]
@@ -49,11 +61,7 @@ namespace ClgManagementServer.Controllers
             return Ok(new { message = response });
         }
 
-        // public async Task<List<Student>> GetStudentByCollege(string collegeId)
-        // {
-        //     return await _studentServices.GetStudentByCollege(collegeId);
-        // }
-
+       
 
 
 

@@ -31,6 +31,18 @@ public class BranchServices : IBranchServices
         return branchData;
     }
 
+    public async Task<Branch?> GetBranchById(string id)
+    {
+          if (string.IsNullOrEmpty(id))
+            return null; 
+        var branchById = await _branch.Find(a => a.Id == id).FirstOrDefaultAsync();
+     
+
+        return branchById;
+    }
+
+
+
     public async Task<Branch> UpdateBranchAsync(string id, UpdateBranchRequest branchRequest)
     {
         var existingBranch = await _branch.Find(a => a.Id == id).FirstOrDefaultAsync();
