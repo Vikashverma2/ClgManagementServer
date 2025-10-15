@@ -39,6 +39,7 @@ It provides complete CRUD operations, a clean layered architecture, and follows 
 
 ## 🖼️ Screenshots
 
+🔹 Swagger API Endpoints
 
 
 ![App Screenshot](https://blogger.googleusercontent.com/img/a/AVvXsEjxvJRJGh_n1SHmtZjJW5UAwQDLL-ZUF3HTIR-IkiduVWJmc5RgK9muHEZFrRDHCDkElk6-j751kasSw_8j4Rx8NWQ50nJ4cPXaNHSUJEkvoGJs5pVfIhNRyPgqv7n7TuiP1pmrsJuzCjMVRZDaGj8Mui_FoJ6JTBXq01FjkUYtUqv_NYzfFfXBYW7afqdi)
