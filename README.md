@@ -16,6 +16,7 @@ It provides complete CRUD operations, a clean layered architecture, and follows 
 ## 📁 Features
 
 🔹 Full CRUD Functionality for:
+
 🏫 College
 
 🎓 Degree
